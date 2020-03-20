@@ -5,6 +5,7 @@ class Snake {
         this.xSpeed = scale * 1;
         this.ySpeed = 0;
         this.tail = [];
+        this.prevDirection = null;
     };
 
     draw() {
@@ -45,22 +46,36 @@ class Snake {
 
 
     changeDirection(direction) {
+        console.log(this.prevDirection);
+
         switch (direction) {
             case "Up":
-                this.xSpeed = 0;
-                this.ySpeed = scale * -1;
+                if (this.prevDirection != "Down") {
+                    this.xSpeed = 0;
+                    this.ySpeed = scale * -1;
+                    this.prevDirection = direction;
+                }
                 break;
             case "Down":
-                this.xSpeed = 0;
-                this.ySpeed = scale * 1;
+                if (this.prevDirection != "Up") {
+                    this.xSpeed = 0;
+                    this.ySpeed = scale * 1;
+                    this.prevDirection = direction;
+                }
                 break;
             case "Right":
-                this.xSpeed = scale * 1;
-                this.ySpeed = 0;
+                if (this.prevDirection != "Left") {
+                    this.xSpeed = scale * 1;
+                    this.ySpeed = 0;
+                    this.prevDirection = direction;
+                }
                 break;
             case "Left":
-                this.xSpeed = scale * -1;
-                this.ySpeed = 0;
+                if (this.prevDirection != "Right") {
+                    this.xSpeed = scale * -1;
+                    this.ySpeed = 0;
+                    this.prevDirection = direction;
+                }
                 break;
             default:
                 break;
