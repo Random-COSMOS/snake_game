@@ -19,6 +19,8 @@ class Fruit {
         if (snake.x === this.x && snake.y === this.y) {
             this.x = (Math.floor(Math.random() * rows - 1) + 1) * scale;
             this.y = (Math.floor(Math.random() * columns - 1) + 1) * scale;
+
+            snake.tail.push([undefined,undefined]);
             return true;
         } else {
             return false;
