@@ -44,6 +44,12 @@ class Snake {
         } else if (this.y < 0) {
             this.y = height;
         }
+
+        for (let coordinates of this.tail){
+            if (this.x === coordinates[0] && this.y === coordinates[1]){
+                console.log(`Game over score: ${fruit.score}`)
+            }
+        }
     };
 
 

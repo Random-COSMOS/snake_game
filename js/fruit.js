@@ -1,7 +1,8 @@
 class Fruit {
     constructor() {
-        this.x = 120;
-        this.y = 240;
+        this.x = 0;
+        this.y = 0;
+        this.score = 0;
     }
 
     draw(){
@@ -10,20 +11,17 @@ class Fruit {
     }
 
     location() {
-        this.x = (Math.floor(Math.random() * rows - 1) + 1) * scale;
-        this.y = (Math.floor(Math.random() * columns - 1) + 1) * scale;
-        console.log(this.y);
+        this.x = (Math.floor(Math.random() * columns)) * scale;
+        this.y = (Math.floor(Math.random() * rows)) * scale;
     }
     
     ifEaten(){
         if (snake.x === this.x && snake.y === this.y) {
-            this.x = (Math.floor(Math.random() * rows - 1) + 1) * scale;
-            this.y = (Math.floor(Math.random() * columns - 1) + 1) * scale;
-
+            this.location();
             snake.tail.push([undefined,undefined]);
             return true;
         } else {
             return false;
         }
     }
-}
+}   

@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Snake Game</title>
 </head>
+
 <body>
-    
-    <canvas id="canvas" height="500" width="500" style="background-color: #3e3e3e"></canvas>
+
+    <div class="intro" id="intro">
+        <h1>SNAKE</h1>
+        <h3>Press SPACEBAR to start!</h3>
+    </div>
+
+    <div class="main" id="main">
+        <canvas id="canvas" height="700" width="900" style="background-color: #3e3e3e"></canvas>
+        <p id="score">score: <span id="scoreBoard"></span></p>
+    </div>
 
     <script src="./js/snake.js"></script>
     <script src="./js/fruit.js"></script>
     <script src="./js/draw.js"></script>
 </body>
+
 </html>
