@@ -9,15 +9,17 @@ class Snake {
     };
 
     draw() {
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = '#bebebe';
         ctx.fillRect(this.x, this.y, scale, scale);
+        ctx.fillStyle = '#ffffff';
         for (let coordinates of this.tail) {
             ctx.fillRect(coordinates[0], coordinates[1], scale, scale);
         }
     }
 
     update() {
-
+        let width = canvas.width - scale;
+        let height = canvas.height - scale;
 
         for (let i = 0; i < this.tail.length - 1; i++) {
             this.tail[i][0] = this.tail[i + 1][0];
@@ -32,22 +34,20 @@ class Snake {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
 
-        if (this.x > canvas.width) {
+        if (this.x > width) {
             this.x = 0;
         } else if (this.x < 0) {
-            this.x = canvas.width;
+            this.x = width;
         }
-        if (this.y > canvas.height) {
+        if (this.y > height) {
             this.y = 0;
         } else if (this.y < 0) {
-            this.y = canvas.height;
+            this.y = height;
         }
     };
 
 
     changeDirection(direction) {
-        console.log(this.prevDirection);
-
         switch (direction) {
             case "Up":
                 if (this.prevDirection != "Down") {

@@ -1,11 +1,11 @@
 class Fruit {
     constructor() {
         this.x = 120;
-        this.y = 250;
+        this.y = 240;
     }
 
     draw(){
-        ctx.fillStyle = "green";
+        ctx.fillStyle = "lime";
         ctx.fillRect(this.x, this.y, scale, scale)
     }
 
